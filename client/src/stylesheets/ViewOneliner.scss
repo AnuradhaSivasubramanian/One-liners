@@ -1,0 +1,29 @@
+@import "../stylesheets/global.scss";
+.viewoneliner--wrapper_nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: $margin;
+}
+.oneliner--wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.oneliner--wrapper_content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: $margin;
+  box-shadow: $box-shadow-pink;
+  background-color: $white;
+  width: 90%;
+  font-family: $font-lato;
+  font-size: 1.2em;
+}
+.oneliner--content_main {
+  margin: $margin;
+}
+.oneliner--content_name {
+  margin: $margin;
+}

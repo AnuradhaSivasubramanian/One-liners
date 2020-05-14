@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchOneliner } from "../actions/fetchOneliner";
+import "../stylesheets/ViewOneliner.scss";
 
 export class ViewOneliner extends Component {
   componentDidMount = () => {
@@ -10,18 +11,29 @@ export class ViewOneliner extends Component {
   render() {
     return (
       <div className="viewOneliner--wrapper">
-        <div className="navbar--wrapper">
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/viewoneliner">Posts</Link>
+        <div className="viewoneliner--wrapper_nav">
+          <div className="project--name_icon">
+            <span className="name--icon_span_solid">ON</span>
+            <span className="name--icon_span">E</span>
+            <span className="name--icon_span_solid">LI</span>
+            <span className="name--icon_span">NERS</span>
+          </div>
+          <nav className="nav--wrapper">
+            <Link className="nav--link" to="/">
+              Home
+            </Link>
           </nav>
         </div>
         <div className="oneliner--wrapper">
           {this.props.guest
             ? this.props.guest.map((item, index) => (
                 <div className="oneliner--wrapper_content" key={index}>
-                  <h3>{item.data}</h3>
-                  <p>-{item.name}</p>
+                  <div className="oneliner--content_main">
+                    <h4>{item.data}</h4>
+                  </div>
+                  <div className="oneliner--content_name">
+                    <p>-{item.name}</p>
+                  </div>
                 </div>
               ))
             : null}

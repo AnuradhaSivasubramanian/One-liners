@@ -1,0 +1,112 @@
+/*COLORS*/
+$light-grey: #f5f6fa;
+$light-pink: #ff0080;
+$white: white;
+$dark-grey: #696969;
+
+/*FONT FAMILY*/
+$font-bungee: "Bungee", cursive;
+$font-lato: "Lato", sans-serif;
+
+/*MARGIN*/
+$margin: 20px;
+
+/*FONT SIZE*/
+$icon_font: 2em;
+
+$border: 0.5px solid $light-pink;
+$box-shadow-pink: 0px 3px 3px $light-pink;
+
+body {
+  height: 100vh;
+  background-color: $light-grey;
+}
+#root {
+  height: 100vh;
+}
+/*app wrapper*/
+.app--wrapper {
+  height: 100vh;
+}
+.name--icon_span_solid {
+  color: black;
+  font-family: $font-bungee;
+  font-size: $icon_font;
+  text-shadow: -1px 1px 0 #ff0080, 1px 1px 0 #ff0080, 1px -1px 0 #ff0080,
+    -1px -1px 0 #ff0080;
+  animation-duration: 7s;
+  animation-name: colorchangesolid;
+  animation-iteration-count: 2;
+}
+.name--icon_span {
+  color: white;
+  font-family: $font-bungee;
+  font-size: $icon_font;
+  transition: color 2s;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+  animation-duration: 7s;
+  animation-name: colorchangenotsolid;
+  animation-iteration-count: 2;
+}
+
+@keyframes colorchangesolid {
+  from {
+    color: black;
+    text-shadow: -1px 1px 0 #ff0080, 1px 1px 0 #ff0080, 1px -1px 0 #ff0080,
+      -1px -1px 0 #ff0080;
+  }
+
+  50% {
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+  to {
+    color: black;
+    text-shadow: -1px 1px 0 #ff0080, 1px 1px 0 #ff0080, 1px -1px 0 #ff0080,
+      -1px -1px 0 #ff0080;
+  }
+}
+@keyframes colorchangenotsolid {
+  from {
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+
+  50% {
+    color: black;
+    text-shadow: -1px 1px 0 #ff0080, 1px 1px 0 #ff0080, 1px -1px 0 #ff0080,
+      -1px -1px 0 #ff0080;
+  }
+  to {
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+}
+
+.nav--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav--link {
+  font-family: $font-lato;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  &:hover {
+    color: $light-pink;
+  }
+}
+
+.name--icon_span:hover {
+  color: black;
+
+  text-shadow: -1px 1px 0 #ff0080, 1px 1px 0 #ff0080, 1px -1px 0 #ff0080,
+    -1px -1px 0 #ff0080;
+}

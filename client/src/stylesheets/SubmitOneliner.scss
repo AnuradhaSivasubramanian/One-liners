@@ -1,0 +1,67 @@
+@import "../stylesheets/Global.scss";
+
+.submitoneliner--wrapper {
+  margin: $margin;
+}
+
+.submitoneliner--wrapper_nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: $margin;
+}
+.oneliner--form_fillmessage {
+  color: white;
+  background-color: $dark-grey;
+  padding: 2%;
+
+  position: absolute;
+  top: 70px;
+  width: 200px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+}
+.oneliner--input_form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 10%;
+  height: 70vh;
+  justify-content: space-between;
+}
+.oneliner--form {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: space-between;
+}
+.form--input_text {
+  height: 40%;
+  background-color: #ffb3d9;
+  color: black;
+  font-family: $font-lato;
+}
+.form--input_name {
+  height: 10%;
+  background-color: #ffb3d9;
+  color: black;
+  font-family: $font-lato;
+}
+.btn--primary {
+  width: 50%;
+  align-self: center;
+  font-family: $font-lato;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 1em;
+}
