@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchOneliner } from "../actions/fetchOneliner";
+import handleUpdateOneliner from "../helpers/handleUpdateVote";
+import Upvote from "../images/upvote.svg";
+import { addVote } from "../actions/addVote";
 import "../stylesheets/ViewOneliner.scss";
 
 export class ViewOneliner extends Component {
@@ -32,7 +35,21 @@ export class ViewOneliner extends Component {
                     <h4>{item.data}</h4>
                   </div>
                   <div className="oneliner--content_name">
-                    <p>-{item.name}</p>
+                    <div className="oneliner--name">
+                      <p>-{item.name}</p>
+                    </div>
+                    <div className="oneliner--vote">{item.upvote} Votes</div>
+                    <div className="oneliner--upvote">
+                      <img
+                        src={Upvote}
+                        alt="vote"
+                        className="image--upvote"
+                        onClick={() => {
+                          handleUpdateOneliner(item);
+                          this.props.dispatch(addVote(item));
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               ))

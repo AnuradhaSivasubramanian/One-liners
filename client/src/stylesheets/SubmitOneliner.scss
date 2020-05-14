@@ -38,6 +38,13 @@
   height: 70vh;
   justify-content: space-between;
 }
+@media screen and (min-width: 500px) {
+  .oneliner--input_form {
+    width: 70%;
+    margin-left: 15%;
+    height: 80vh;
+  }
+}
 .oneliner--form {
   display: flex;
   flex-direction: column;
@@ -49,6 +56,8 @@
   background-color: #ffb3d9;
   color: black;
   font-family: $font-lato;
+  resize: none;
+  overflow: auto;
 }
 .form--input_name {
   height: 10%;
@@ -64,4 +73,22 @@
   color: white;
   padding: 10px;
   font-size: 1em;
+}
+.oneliner--input_success {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffb3d9;
+  height: 10vh;
+  font-family: $font-lato;
+  padding: $margin;
+  font-size: 1.4em;
+}
+.success--image {
+  width: 25px;
+  display: flex;
+  align-self: flex-start;
+  filter: invert(14%) sepia(1%) saturate(0%) hue-rotate(112deg) brightness(103%)
+    contrast(88%);
 }

@@ -4,6 +4,8 @@ export default function (state = {}, action) {
       return { ...state, guest: action.guest };
     case "POST_ONELINER":
       return { ...state, guest: action.guest };
+    case "VOTE_ONELINER":
+      return { ...state, guest: action.guest };
     default:
       return state;
   }

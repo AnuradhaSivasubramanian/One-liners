@@ -26,4 +26,23 @@
 }
 .oneliner--content_name {
   margin: $margin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+}
+.image--upvote {
+  width: 20px;
+
+  &:hover {
+    width: 25px;
+    filter: invert(46%) sepia(98%) saturate(7490%) hue-rotate(319deg)
+      brightness(94%) contrast(118%);
+  }
+}
+@media screen and (min-width: 500px) {
+  .oneliner--content_name {
+    width: 40%;
+  }
 }
