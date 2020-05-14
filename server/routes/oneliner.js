@@ -44,4 +44,25 @@ router.post("/", function (req, res, next) {
  * UPDATE the upvote - increase by 1 vote
  */
 
+router.put("/", (req, res) => {
+  oneliner
+    .update({ upvote: req.body.upvote }, { where: { id: req.body.id } })
+    .then((results) => {
+      results[0] === 1
+        ? res.status(200).send({
+            message: "Vote has been cast",
+          })
+        : res.status(404).send({ message: "could not find the oneliner" });
+    })
+    .catch((err) => {
+      if (err) {
+        console.error(`Error when updating: ${err}`);
+
+        res.status(500).send({
+          message: "Server Issues. Please try later",
+        });
+      }
+    });
+});
+
 module.exports = router;
