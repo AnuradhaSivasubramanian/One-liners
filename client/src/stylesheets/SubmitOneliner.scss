@@ -73,6 +73,10 @@
   color: white;
   padding: 10px;
   font-size: 1em;
+  cursor: pointer;
+  &:hover {
+    color: $light-pink;
+  }
 }
 .oneliner--input_success {
   display: flex;

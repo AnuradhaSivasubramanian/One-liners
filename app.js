@@ -5,8 +5,6 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const onelinerRouter = require("./routes/oneliner");
 
 const app = express();
@@ -23,22 +21,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "/client/build")));
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
-} else {
-  app.use(express.static(path.join(__dirname, "/client/public")));
-  app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/public/index.html"));
-  });
 }
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/oneliner", onelinerRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

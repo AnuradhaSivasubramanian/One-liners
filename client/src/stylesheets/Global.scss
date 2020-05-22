@@ -89,15 +89,17 @@ body {
 
 .nav--wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
   align-items: center;
 }
-.nav--link {
+
+.btn--nav {
+  align-self: center;
   font-family: $font-lato;
-  font-size: 1.3em;
-  text-decoration: none;
-  color: black;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 1em;
   cursor: pointer;
   &:hover {
     color: $light-pink;

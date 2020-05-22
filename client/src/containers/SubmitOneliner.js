@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import handlePostOneliner from "../helpers/handlePostOneliner";
 import CloseIcon from "../images/closeicon.svg";
+import ViewOneliner from "./ViewOneliner";
 import "../stylesheets/SubmitOneliner.scss";
 
 export default function SubmitOneliner() {
   const [name, setName] = useState("");
   const [oneliner, setOneliner] = useState("");
   const [successmessage, setSuccessMessage] = useState("");
+  const [isviewMounted, setIsViewMounted] = useState(false);
 
   const updateName = (e) => {
     setName(e.target.value);
@@ -36,59 +37,75 @@ export default function SubmitOneliner() {
           <span className="name--icon_span">NERS</span>
         </div>
         <nav className="nav--wrapper">
-          <Link className="nav--link" to="/viewoneliner">
-            Posts
-          </Link>
+          {isviewMounted ? (
+            <button
+              className="btn--nav"
+              onClick={() => setIsViewMounted(!isviewMounted)}
+            >
+              Home
+            </button>
+          ) : (
+            <button
+              className="btn--nav"
+              onClick={() => setIsViewMounted(!isviewMounted)}
+            >
+              Posts
+            </button>
+          )}
         </nav>
       </div>
-      <div className="oneliner--input_form" onSubmit={handleFormSubmit}>
-        {successmessage.includes("successfull") ? (
-          <div className="oneliner--input_success">
-            <div className="oneliner--success_text">
-              <h6>{successmessage}</h6>
+      {isviewMounted ? (
+        <ViewOneliner />
+      ) : (
+        <div className="oneliner--input_form" onSubmit={handleFormSubmit}>
+          {successmessage.includes("successfull") ? (
+            <div className="oneliner--input_success">
+              <div className="oneliner--success_text">
+                <h6>{successmessage}</h6>
+              </div>
+              <div className="oneliner--success_close">
+                <img
+                  className="success--image"
+                  src={CloseIcon}
+                  alt="close"
+                  onClick={() => {
+                    setSuccessMessage("");
+                    setOneliner("");
+                    setName("");
+                  }}
+                />
+              </div>
             </div>
-            <div className="oneliner--success_close">
-              <img
-                className="success--image"
-                src={CloseIcon}
-                alt="close"
-                onClick={() => {
-                  setSuccessMessage("");
-                  setOneliner("");
-                  setName("");
-                }}
+          ) : (
+            <form className="oneliner--form">
+              {successmessage.includes("fill") ? (
+                <p className="oneliner--form_fillmessage">
+                  Fill all fields before submit
+                </p>
+              ) : null}
+              <textarea
+                placeholder=" Submit your oneliner here"
+                type="text"
+                name="oneliner"
+                className="form--input_text"
+                value={oneliner}
+                onChange={updateOneliner}
+                data-test="input-oneliner"
               />
-            </div>
-          </div>
-        ) : (
-          <form className="oneliner--form">
-            {successmessage.includes("fill") ? (
-              <p className="oneliner--form_fillmessage">
-                Fill all fields before submit
-              </p>
-            ) : null}
-            <textarea
-              placeholder=" Submit your oneliner here"
-              type="text"
-              name="oneliner"
-              className="form--input_text"
-              value={oneliner}
-              onChange={updateOneliner}
-              data-test="input-oneliner"
-            />
-            <input
-              placeholder=" Name"
-              type="text"
-              name="name"
-              className="form--input_name"
-              value={name}
-              onChange={updateName}
-              data-test="input-name"
-            />
-            <button className="btn--primary">Submit</button>
-          </form>
-        )}
-      </div>
+              <input
+                placeholder=" Name"
+                type="text"
+                name="name"
+                className="form--input_name"
+                value={name}
+                onChange={updateName}
+                data-test="input-name"
+              />
+              <button className="btn--primary">Submit</button>
+            </form>
+          )}
+        </div>
+      )}
     </div>
   );
 }
