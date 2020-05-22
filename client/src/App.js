@@ -6,7 +6,7 @@ import ViewOneliner from "./containers/ViewOneliner";
 
 function App() {
   return (
-    <HashRouter history={hashHistory}>
+    <HashRouter>
       <div className="app--wrapper" data-test="component-app">
         <Switch>
           <Route exact path="/" component={SubmitOneliner} />
