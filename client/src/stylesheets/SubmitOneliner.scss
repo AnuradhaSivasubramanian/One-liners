@@ -51,6 +51,7 @@
   height: 60%;
   justify-content: space-between;
 }
+
 .form--input_text {
   height: 40%;
   background-color: #ffb3d9;
@@ -58,12 +59,18 @@
   font-family: $font-lato;
   resize: none;
   overflow: auto;
+  font-size: 1.2em;
+  padding: 1%;
 }
+
 .form--input_name {
   height: 10%;
   background-color: #ffb3d9;
   color: black;
   font-family: $font-lato;
+}
+input[type="text"] {
+  font-size: 1.2em;
 }
 .btn--primary {
   width: 50%;

@@ -15,30 +15,32 @@ class ViewOneliner extends Component {
       <div className="viewOneliner--wrapper">
         <div className="oneliner--wrapper">
           {this.props.guest
-            ? this.props.guest.map((item, index) => (
-                <div className="oneliner--wrapper_content" key={index}>
-                  <div className="oneliner--content_main">
-                    <h4>{item.data}</h4>
-                  </div>
-                  <div className="oneliner--content_name">
-                    <div className="oneliner--name">
-                      <p>-{item.name}</p>
+            ? this.props.guest
+                .sort((a, b) => (a.upvote < b.upvote ? 1 : -1))
+                .map((item, index) => (
+                  <div className="oneliner--wrapper_content" key={index}>
+                    <div className="oneliner--content_main">
+                      <h4>{item.data}</h4>
                     </div>
-                    <div className="oneliner--vote">{item.upvote} Votes</div>
-                    <div className="oneliner--upvote">
-                      <img
-                        src={Upvote}
-                        alt="vote"
-                        className="image--upvote"
-                        onClick={() => {
-                          handleUpdateOneliner(item);
-                          this.props.dispatch(addVote(item));
-                        }}
-                      />
+                    <div className="oneliner--content_name">
+                      <div className="oneliner--name">
+                        <p>-{item.name}</p>
+                      </div>
+                      <div className="oneliner--vote">{item.upvote} Votes</div>
+                      <div className="oneliner--upvote">
+                        <img
+                          src={Upvote}
+                          alt="vote"
+                          className="image--upvote"
+                          onClick={() => {
+                            handleUpdateOneliner(item);
+                            this.props.dispatch(addVote(item));
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                ))
             : null}
         </div>
       </div>
