@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className="app--wrapper" data-test="component-app">
         <Switch>
-          <Route path="/" component={SubmitOneliner} />
+          <Route exact path="/" component={SubmitOneliner} />
           <Route path="/viewoneliner" component={ViewOneliner} />
         </Switch>
       </div>
