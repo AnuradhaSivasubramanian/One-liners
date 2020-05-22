@@ -5,15 +5,12 @@ import ViewOneliner from "./containers/ViewOneliner";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={hashHistory}>
       <div className="app--wrapper" data-test="component-app">
         <Switch>
-          <Route exact path="/">
-            <SubmitOneliner data-test="submitoneliner-component" />
-          </Route>
-          <Route path="/viewoneliner">
-            <ViewOneliner data-test="viewoneliner-component" />
-          </Route>
+          <Route exact path="/" component={SubmitOneliner} />
+
+          <Route path="/viewoneliner" component={ViewOneliner} />
         </Switch>
       </div>
     </BrowserRouter>
