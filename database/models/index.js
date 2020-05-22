@@ -7,6 +7,7 @@ const Sequelize = require("sequelize");
 if (config.use_env_variable) {
   var connector = new Sequelize(process.env[config.use_env_variable], config);
 } else {
+  console.log("this is the connector");
   var connector = new Sequelize(config.name, config.user, config.password, {
     host: config.host,
     dialect: config.dialect,
