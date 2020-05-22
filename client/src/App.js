@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, hashHistory } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
+
 import SubmitOneliner from "./containers/SubmitOneliner";
 import ViewOneliner from "./containers/ViewOneliner";
 
 function App() {
   return (
-    <BrowserRouter history={hashHistory}>
+    <HashRouter history={hashHistory}>
       <div className="app--wrapper" data-test="component-app">
         <Switch>
           <Route exact path="/" component={SubmitOneliner} />
@@ -13,7 +14,7 @@ function App() {
           <Route path="/viewoneliner" component={ViewOneliner} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
