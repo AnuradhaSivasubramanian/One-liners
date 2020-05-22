@@ -8,9 +8,9 @@ if (config.use_env_variable) {
   var connector = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   console.log("this is the connector");
-  var connector = new Sequelize(config.name, config.user, config.password, {
-    host: config.host,
-    dialect: config.dialect,
+  var connector = new Sequelize("one_liners", "root", "5973", {
+    host: "localhost",
+    dialect: "mysql",
   });
 }
 // if (process.env.NODE_ENV === "production") {
