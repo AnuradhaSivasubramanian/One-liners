@@ -1,11 +1,28 @@
-const envVars = require("../config/db.config.js");
+let env = process.env.NODE_ENV || "development";
+let config = require(__dirname + "/../config/db.config.js")[env];
+
+require("dotenv").config();
 
 const Sequelize = require("sequelize");
-
-const connector = new Sequelize(envVars.name, envVars.user, envVars.password, {
-  host: envVars.host,
-  dialect: envVars.dialect,
-});
+if (config.use_env_variable) {
+  var connector = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  var connector = new Sequelize(config.name, config.user, config.password, {
+    host: config.host,
+    dialect: config.dialect,
+  });
+}
+// if (process.env.NODE_ENV === "production") {
+//   connector = new Sequelize(envVars.name, envVars.user, envVars.password, {
+//     host: envVars.host,
+//     dialect: envVars.dialect,
+//   });
+// } else {
+//   connector = new Sequelize(envVars.name, envVars.user, envVars.password, {
+//     host: envVars.host,
+//     dialect: envVars.dialect,
+//   });
+// }
 
 const authenticate = async (connector) => {
   try {
