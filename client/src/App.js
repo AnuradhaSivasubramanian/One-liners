@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, hashHistory } from "react-router-dom";
 import SubmitOneliner from "./containers/SubmitOneliner";
 import ViewOneliner from "./containers/ViewOneliner";
 
